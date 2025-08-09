@@ -1,0 +1,1 @@
+-v --force --timestamp=none --sign - --entitlements /Users/mercieca/projects/maui/LightsOn/LightsOn/obj/Debug/net9.0-maccatalyst/maccatalyst-arm64/Entitlements.xcent /Users/mercieca/projects/maui/LightsOn/LightsOn/bin/Debug/net9.0-maccatalyst/maccatalyst-arm64/LightsOn.app

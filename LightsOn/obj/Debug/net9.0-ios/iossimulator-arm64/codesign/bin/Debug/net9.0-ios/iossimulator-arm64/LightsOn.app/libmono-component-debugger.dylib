@@ -1,0 +1,1 @@
+-v --force --timestamp=none --sign - /Users/mercieca/projects/maui/LightsOn/LightsOn/bin/Debug/net9.0-ios/iossimulator-arm64/LightsOn.app/libmono-component-debugger.dylib
