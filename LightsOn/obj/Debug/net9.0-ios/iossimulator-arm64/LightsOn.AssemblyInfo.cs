@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("LightsOn")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+78d9ef6772991a8a8d5e4f59ce49cd7ab9600b6c")]
 [assembly: System.Reflection.AssemblyProductAttribute("LightsOn")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LightsOn")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
