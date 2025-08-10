@@ -9,11 +9,14 @@ public class GameBoard
   public int[,] Board { get; private set; }
   private int[,] OriginalBoard { get; set; }
 
+  public List<string> Moves { get; private set; }
+
   public GameBoard(int GridSize, int? StartingMoves, int? SwitchMax)
   {
     this.GridSize = GridSize;
     Board = new int[GridSize, GridSize];
     OriginalBoard = new int[GridSize, GridSize];
+    Moves = new List<string>();
 
     if (StartingMoves is not null)
     {
@@ -63,13 +66,13 @@ public class GameBoard
 
   public void RandomizeGameBoard()
   {
-    System.Diagnostics.Debug.WriteLine("--------------- New Game ----------------");
     Random rand = new Random();
     for (int i = 0; i < StartingMoves; i++)
     {
       int row = rand.Next(GridSize);
       int col = rand.Next(GridSize);
       Toggle(row, col);
+      Moves.Add($"{row},{col}");
       System.Diagnostics.Debug.WriteLine($"{row},{col}");
     }
     CopyBoard(Board, OriginalBoard);

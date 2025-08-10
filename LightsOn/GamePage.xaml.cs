@@ -49,11 +49,8 @@ public partial class GamePage : ContentPage
 		{
 			for (int col = 0; col < Board.GridSize; col++)
 			{
-				Button light = new Button
-				{
-					CommandParameter = $"{row},{col}",
-				};
-
+				Button light = new Button();
+				light.CommandParameter = $"{row},{col}";
 				light.Clicked += OnLightClicked;
 
 				LightGrid.Add(light, col, row);
@@ -81,7 +78,7 @@ public partial class GamePage : ContentPage
 		ShowBoard();
 	}
 
-	private async Task ShowBoard()
+	private async Task ShowBoard(bool solve = false)
 	{
 		foreach (var child in LightGrid)
 		{
@@ -100,6 +97,24 @@ public partial class GamePage : ContentPage
 			{
 				light.BackgroundColor = (Color)App.Current.Resources["Level2"];
 			}
+			if (solve)
+			{
+				if (Board.Moves.IndexOf($"{row},{col}") >= 0)
+				{
+					int i = Board.Moves.IndexOf($"{row},{col}") + 1;
+					string moves = i.ToString();
+
+					while (Board.Moves.IndexOf($"{row},{col}", i) > 0)
+					{
+						i = Board.Moves.IndexOf($"{row},{col}", i) + 1;
+						moves = $"{moves},{i}";
+					}
+
+					light.Text = moves;
+					light.TextColor = (Color)App.Current.Resources["White"];
+					light.FontSize = 24;
+				}
+			}
 		}
 
 		if (Board.Won())
@@ -108,6 +123,12 @@ public partial class GamePage : ContentPage
 			Navigation.PopAsync();
 		}
 	}
+
+	public void SolveBoardClicked(object? sender, EventArgs e)
+  {
+		Board.Reset();
+		ShowBoard(true);
+  }
 
 	private int GetPosFromButton(Button b, int index)
 	{

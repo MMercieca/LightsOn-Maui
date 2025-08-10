@@ -4,6 +4,7 @@
              x:Class="LightsOn.GamePage">
         <ContentPage.ToolbarItems>
           <ToolbarItem Text="Reset" Clicked="ResetBoardClicked" />  
+          <ToolbarItem Text="Solve" Clicked="SolveBoardClicked" />
         </ContentPage.ToolbarItems>    
 
      
